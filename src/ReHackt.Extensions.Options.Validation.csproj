@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Globals">
     <SccProjectName>SAK</SccProjectName>
@@ -14,8 +14,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Lionel Vallet</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Extends Options with recursive data annotations validation and eager validation on startup.</Description>
+    <Description>Provides validation functionality related to Options (recursive DataAnnotations validation, eager validation on startup..).</Description>
     <Version>3.1.0</Version>
+    <RepositoryUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</PackageProjectUrl>
+    <PackageTags>aspnetcore, options, validation</PackageTags>
+    <PackageReleaseNotes>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation/releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
