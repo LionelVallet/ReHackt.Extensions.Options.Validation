@@ -40,8 +40,7 @@ namespace ReHackt.Extensions.Options.Validation
 
                 if (value == null) continue;
 
-                var asEnumerable = value as IEnumerable;
-                if (asEnumerable != null)
+                if (value is IEnumerable asEnumerable)
                 {
                     foreach (var enumObj in asEnumerable)
                     {
