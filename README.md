@@ -80,7 +80,9 @@ public class SecurityOptions
 
 ### ServiceCollection extension
 
-`services.ConfigureAndValidate<TOptions>(Action<TOptions> configureOptions)`
+``` csharp
+services.ConfigureAndValidate<TOptions>(configureOptions)
+```
   
 Is syntactic sugar for
 
