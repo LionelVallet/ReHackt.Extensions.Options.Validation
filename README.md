@@ -20,7 +20,7 @@ PM> Install-Package ReHackt.Extensions.Options.Validation
 ## TL;DR
 
 1) Create your options class(es)
-2) Decorate your options with data annotation
+2) Decorate your options with data annotations
 3) Call `ConfigureAndValidate<T>(Action<T> configureOptions)` on your `IServiceCollection`
 
 `ConfigureAndValidate` will configure your options (calling the base `Configure` method), but will also check that the built configuration respects the data annotations, otherwise an OptionsValidationException (with details) is thrown as soon as the application is started. No misconfiguration surprise at runtime!
@@ -74,10 +74,6 @@ public class SecurityOptions
 
 ## Use
 
-### OptionsBuilder extensions
-
-`// Documentation under construction`
-
 ### ServiceCollection extension
 
 ``` csharp
@@ -95,3 +91,6 @@ services
         .Services
 ```
 
+### OptionsBuilder extensions
+
+`// Documentation under construction`
