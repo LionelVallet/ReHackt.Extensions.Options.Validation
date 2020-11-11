@@ -1,5 +1,5 @@
 # ReHackt.Extensions.Options.Validation
-Extends Options with nested data annotations validation and eager validation on startup.
+Extends `Microsoft.Extensions.Options.OptionsBuilder` with nested data annotations validation and eager validation on startup.
 
 ## Install
 
@@ -16,3 +16,9 @@ PM> Install-Package ReHackt.Extensions.Options.Validation
 ```
 > dotnet add package ReHackt.Extensions.Options.Validation
 ```
+
+## Use
+
+### OptionsBuilder extensions
+
+### ServiceCollection extension
