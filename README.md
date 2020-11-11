@@ -1,5 +1,5 @@
 # ReHackt.Extensions.Options.Validation
-Extends `Microsoft.Extensions.Options.OptionsBuilder` with nested data annotations validation and eager validation on startup.
+Extends `Microsoft.Extensions.Options.OptionsBuilder` and `Microsoft.Extensions.DependencyInjection.IServiceCollection` with **nested data annotations validation** and **eager validation on startup**.
 
 ## Install
 
