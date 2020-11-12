@@ -76,6 +76,8 @@ public class SecurityOptions
 
 ### ServiceCollection extension
 
+#### ConfigureAndValidate
+
 ``` csharp
 services.ConfigureAndValidate<TOptions>(configureOptions)
 ```
@@ -93,4 +95,25 @@ services
 
 ### OptionsBuilder extensions
 
-`// Documentation under construction`
+#### ValidateDataAnnotationsRecursively
+
+This method register this options instance for validation of its DataAnnotations at the first dependency injection. Nested objects are supported.
+
+#### ValidateEagerly
+
+This method validates this options instance at application startup rather than at the first dependency injection.
+
+#### ConfigureAndValidate
+
+``` csharp
+optionsBuilder.ConfigureAndValidate<TOptions>(configureOptions)
+```
+  
+Is syntactic sugar for
+
+``` csharp
+optionsBuilder
+    .Configure(configureOptions)
+    .ValidateDataAnnotationsRecursively()
+    .ValidateEagerly()
+```
