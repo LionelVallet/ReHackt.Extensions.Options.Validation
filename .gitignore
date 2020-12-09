@@ -345,3 +345,4 @@ MigrationBackup/
 
 # NuGet
 NuGet.config
+/publish/nuget.exe
