@@ -1,21 +1,9 @@
 # ReHackt.Extensions.Options.Validation
-Extends `OptionsBuilder<T>` and `IServiceCollection` with **nested data annotations validation** and **eager validation on startup**.
+Extends `OptionsBuilder<T>` and `IServiceCollection` with **nested data annotations validation** and **eager validation on start**.
 
-## Install
+## Get started
 
 Get it on <a href="https://www.nuget.org/packages/ReHackt.Extensions.Options.Validation"><img src="https://www.nuget.org/Content/gallery/img/default-package-icon.svg" height=18 style="height:18px;" /> NuGet</a>
-
-### Package Manager Console
-
-```
-PM> Install-Package ReHackt.Extensions.Options.Validation
-```
-
-### .NET CLI Console
-
-```
-> dotnet add package ReHackt.Extensions.Options.Validation
-```
 
 ## TL;DR
 
@@ -76,7 +64,7 @@ public class SecurityOptions
 
 ### ServiceCollection extension
 
-#### ConfigureAndValidate
+#### `ConfigureAndValidate`
 
 ``` csharp
 services.ConfigureAndValidate<TOptions>(configureOptions)
@@ -89,21 +77,21 @@ services
     .AddOptions<TOptions>()
         .Configure(configureOptions)
         .ValidateDataAnnotationsRecursively()
-        .ValidateEagerly()
+        .ValidateOnStart()   // or ValidateEagerly()
         .Services
 ```
 
 ### OptionsBuilder extensions
 
-#### ValidateDataAnnotationsRecursively
+#### `ValidateDataAnnotationsRecursively`
 
 This method register this options instance for validation of its DataAnnotations at the first dependency injection. Nested objects are supported.
 
-#### ValidateEagerly
+#### `ValidateOnStart` *(or `ValidateEagerly` in previous versions)*
 
 This method validates this options instance at application startup rather than at the first dependency injection.
 
-#### ConfigureAndValidate
+#### `ConfigureAndValidate`
 
 ``` csharp
 optionsBuilder.ConfigureAndValidate<TOptions>(configureOptions)
@@ -115,5 +103,5 @@ Is syntactic sugar for
 optionsBuilder
     .Configure(configureOptions)
     .ValidateDataAnnotationsRecursively()
-    .ValidateEagerly()
+    .ValidateOnStart()   // or ValidateEagerly()
 ```
