@@ -1,31 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-  </PropertyGroup>
+	<PropertyGroup Label="Globals">
+		<SccProjectName>SAK</SccProjectName>
+		<SccProvider>SAK</SccProvider>
+		<SccAuxPath>SAK</SccAuxPath>
+		<SccLocalPath>SAK</SccLocalPath>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Company>ReHackt</Company>
-    <Authors>Lionel Vallet</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Lionel Vallet</Copyright>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Provides validation functionality related to Options (nested DataAnnotations validation, eager validation on startup..).</Description>
-    <Version>6.0.0</Version>
-    <RepositoryUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</PackageProjectUrl>
-    <PackageTags>aspnetcore, options, validation</PackageTags>
-    <PackageReleaseNotes>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation/releases</PackageReleaseNotes>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Company>ReHackt</Company>
+		<Authors>Lionel Vallet</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Copyright>Lionel Vallet</Copyright>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>Provides validation functionality related to Options (nested DataAnnotations validation, eager validation on startup..).</Description>
+		<Version>6.0.1</Version>
+		<RepositoryUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</PackageProjectUrl>
+		<PackageTags>aspnetcore, options, validation</PackageTags>
+		<PackageReleaseNotes>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation/releases</PackageReleaseNotes>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>

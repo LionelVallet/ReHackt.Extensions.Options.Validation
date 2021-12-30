@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using ReHackt.Extensions.Options.Validation;
 using System;
 
@@ -30,12 +29,12 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <typeparam name="TOptions">The options type to be configured.</typeparam>
         /// <param name="optionsBuilder">The options builder to add the services to.</param>
         /// <returns>The <see cref="OptionsBuilder{TOptions}"/> so that additional calls can be chained.</returns>
+        [Obsolete("Use ValidateOnStart instead to follow Microsoft guidelines (https://github.com/dotnet/runtime/issues/36391)")]
         public static OptionsBuilder<TOptions> ValidateEagerly<TOptions>(this OptionsBuilder<TOptions> optionsBuilder) where TOptions : class
         {
             if (optionsBuilder == null) throw new ArgumentNullException(nameof(optionsBuilder));
 
-            optionsBuilder.Services.AddTransient<IStartupFilter, OptionsValidationStartupFilter<TOptions>>();
-            return optionsBuilder;
+            return optionsBuilder.ValidateOnStart();
         }
 
         /// <summary>
@@ -53,7 +52,7 @@ namespace Microsoft.Extensions.DependencyInjection
             return optionsBuilder
                     .Configure(configureOptions)
                     .ValidateDataAnnotationsRecursively()
-                    .ValidateEagerly();
+                    .ValidateOnStart();
         }
     }
 }
