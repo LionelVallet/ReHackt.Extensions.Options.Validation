@@ -34,21 +34,13 @@ namespace ReHackt.Extensions.Options.Validation
         /// <returns>The <see cref="ValidateOptionsResult"/> result.</returns>
         public ValidateOptionsResult Validate(string name, TOptions options)
         {
-            // Null name is used to configure all named options.
-            if (Name == null || name == Name)
-            {
-                var validator = new DataAnnotationsValidator();
-                var validationResults = new List<ValidationResult>();
-                if (validator.TryValidateObjectRecursive(options, validationResults))
-                {
-                    return ValidateOptionsResult.Success;
-                }
-
-                return ValidateOptionsResult.Fail(string.Join(Environment.NewLine, validationResults.Select(r => "DataAnnotation validation failed for members " + string.Join(", ", r.MemberNames) + " with the error '" + r.ErrorMessage + "'.")));
-            }
-
             // Ignored if not validating this instance.
-            return ValidateOptionsResult.Skip;
+            if (Name != null && name != Name) return ValidateOptionsResult.Skip;
+            
+            // Null name is used to configure all named options.
+            var validator = new DataAnnotationsValidator();
+            var validationResults = new List<ValidationResult>();
+            return validator.TryValidateObjectRecursive(options, validationResults) ? ValidateOptionsResult.Success : ValidateOptionsResult.Fail(string.Join(Environment.NewLine, validationResults.Select(r => "DataAnnotation validation failed for members " + string.Join(", ", r.MemberNames) + " with the error '" + r.ErrorMessage + "'.")));
         }
     }
 }

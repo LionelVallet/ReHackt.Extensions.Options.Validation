@@ -38,8 +38,6 @@ namespace ReHackt.Extensions.Options.Validation
 
                 var value = obj.GetType().GetProperty(property.Name)?.GetValue(obj, null) ?? string.Empty;
 
-                if (value == null) continue;
-
                 if (value is IEnumerable asEnumerable)
                 {
                     foreach (var enumObj in asEnumerable)
@@ -55,7 +53,7 @@ namespace ReHackt.Extensions.Options.Validation
                                     PropertyInfo property1 = property;
                                     results.Add(new ValidationResult(validationResult.ErrorMessage, validationResult.MemberNames.Select(x => property1.Name + '.' + x)));
                                 }
-                            };
+                            }
                         }
                     }
                 }
@@ -70,7 +68,7 @@ namespace ReHackt.Extensions.Options.Validation
                             PropertyInfo property1 = property;
                             results.Add(new ValidationResult(validationResult.ErrorMessage, validationResult.MemberNames.Select(x => property1.Name + '.' + x)));
                         }
-                    };
+                    }
                 }
             }
 
