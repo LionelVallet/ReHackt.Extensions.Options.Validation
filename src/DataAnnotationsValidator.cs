@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
 
 namespace ReHackt.Extensions.Options.Validation
 {
@@ -27,7 +26,7 @@ namespace ReHackt.Extensions.Options.Validation
             }
 
             validatedObjects.Add(obj);
-            bool result = TryValidateObject(obj, results, validationContextItems);
+            var result = TryValidateObject(obj, results, validationContextItems);
 
             var properties = obj.GetType().GetProperties().Where(prop => prop.CanRead
                 && prop.GetIndexParameters().Length == 0).ToList();
@@ -50,7 +49,7 @@ namespace ReHackt.Extensions.Options.Validation
                                 result = false;
                                 foreach (var validationResult in nestedResults)
                                 {
-                                    PropertyInfo property1 = property;
+                                    var property1 = property;
                                     results.Add(new ValidationResult(validationResult.ErrorMessage, validationResult.MemberNames.Select(x => property1.Name + '.' + x)));
                                 }
                             }
@@ -65,7 +64,7 @@ namespace ReHackt.Extensions.Options.Validation
                         result = false;
                         foreach (var validationResult in nestedResults)
                         {
-                            PropertyInfo property1 = property;
+                            var property1 = property;
                             results.Add(new ValidationResult(validationResult.ErrorMessage, validationResult.MemberNames.Select(x => property1.Name + '.' + x)));
                         }
                     }
