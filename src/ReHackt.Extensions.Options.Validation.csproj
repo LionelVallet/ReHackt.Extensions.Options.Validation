@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
 		<Company>ReHackt</Company>
 		<Authors>Lionel Vallet</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -9,7 +9,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Description>Provides validation functionality related to Options (nested DataAnnotations validation, eager validation on startup..).</Description>
-		<Version>8.0.3</Version>
+		<Version>9.0.0</Version>
 		<RepositoryUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/LionelVallet/ReHackt.Extensions.Options.Validation</PackageProjectUrl>
 		<PackageTags>aspnetcore, options, validation</PackageTags>
@@ -26,8 +26,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
