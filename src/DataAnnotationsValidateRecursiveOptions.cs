@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -40,7 +39,11 @@ namespace ReHackt.Extensions.Options.Validation
             // Null name is used to configure all named options.
             var validator = new DataAnnotationsValidator();
             var validationResults = new List<ValidationResult>();
-            return validator.TryValidateObjectRecursive(options, validationResults) ? ValidateOptionsResult.Success : ValidateOptionsResult.Fail(string.Join(Environment.NewLine, validationResults.Select(r => "DataAnnotation validation failed for members " + string.Join(", ", r.MemberNames) + " with the error '" + r.ErrorMessage + "'.")));
+            // One failure per validation result, worded as the .NET ValidateDataAnnotations words a top-level failure, which
+            // names the options type; nested members keep their full path.
+            return validator.TryValidateObjectRecursive(options, validationResults)
+                ? ValidateOptionsResult.Success
+                : ValidateOptionsResult.Fail(validationResults.Select(r => $"DataAnnotation validation failed for '{typeof(TOptions).Name}' members: '{string.Join(",", r.MemberNames)}' with the error: '{r.ErrorMessage}'.").ToArray());
         }
     }
 }
